@@ -1,0 +1,91 @@
+
+/* Base reset-ish */
+.strip {
+  display: grid;
+  grid-template-columns: 1.1fr repeat(3, 1fr);
+  align-items: stretch;
+  gap: 0; /* Seamless joints */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+/* Title block (left) */
+.strip__title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(180deg, #d8ffe7 0%, #ccf7df 100%);
+  padding: 18px 24px;
+}
+
+.strip__accent {
+  width: 6px;
+  height: 28px;
+  background: #22c55e; /* green */
+  border-radius: 6px;
+  opacity: 0.9;
+}
+
+.strip__titleText {
+  color: #14532d;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Metric blocks */
+.strip__metric {
+  display: grid;
+  grid-template-columns: 1.6fr auto;
+  align-items: center;
+  padding: 16px 20px;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Soft pastel segment backgrounds to match the PNG */
+.strip__metric--1 {
+  background: linear-gradient(180deg, #dfeaf8 0%, #d2deec 100%);
+}
+.strip__metric--2 {
+  background: linear-gradient(180deg, #d6eef9 0%, #cce5f1 100%);
+}
+.strip__metric--3 {
+  background: linear-gradient(180deg, #d3f6f3 0%, #c9eeea 100%);
+}
+
+/* Labels */
+.strip__labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #1f2937; /* slate-800 */
+}
+.strip__labelTop {
+  font-size: 14px;
+  line-height: 1.1;
+}
+.strip__labelBottom {
+  font-size: 13px;
+  color: #374151; /* slate-700 */
+}
+
+/* Values */
+.strip__value {
+  font-weight: 800;
+  font-size: 22px;
+  color: #0b1016; /* near-black */
+}
+
+/* Responsive behavior: stack on small screens */
+@media (max-width: 640px) {
+  .strip {
+    grid-template-columns: 1fr;
+    border-radius: 14px;
+  }
+  .strip__metric {
+    grid-template-columns: 1fr auto;
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+}

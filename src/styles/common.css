@@ -1,0 +1,11 @@
+
+/* Basic reset + font */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: #1c2c40;
+  background: #f6fbff;
+}

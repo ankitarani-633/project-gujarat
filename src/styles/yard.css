@@ -1,0 +1,254 @@
+
+/* Shell layout */
+.yardx-shell{ display:flex; flex-direction:column; min-height:100vh; background:#f6fbff; }
+.yardx-row{ display:flex; min-height:calc(100vh - 68px); }
+.yardx-main{ flex:1; padding:18px; }
+
+/* Welcome gradient banner */
+.yardx-welcome{
+  display:grid; grid-template-columns: 1fr auto; align-items:center;
+  background: linear-gradient(90deg, #1e64ff, #0aa3ff);
+  color:#fff; border-radius:10px; padding:10px 12px; margin-bottom:12px;
+}
+.yardx-wtext{ margin:0; font-weight:700; }
+.accent{ font-weight:800; }
+.yardx-chip{
+  background:#ffffff22; border:1px solid #fff; color:#fff;
+  padding:8px 12px; border-radius:999px; font-weight:600;
+}
+
+/* Vessel Management strip */
+.yardx-manage{
+  display:grid; grid-template-columns: 1fr auto; align-items:center;
+  margin: 10px 0 8px;
+}
+.yardx-mtitle{ color:#474747; font-weight:700; }
+.btn-primary{
+  background:#094CA1; color:#fff; border:none; border-radius:10px;
+  padding:12px 22px; font-weight:700; cursor:pointer; min-width:180px; min-height:40px;
+}
+.btn-primary:hover{ filter:brightness(.96); }
+.btn-secondary{
+  background:#26c1a1; color:#fff; border:none; border-radius:10px;
+  padding:10px 16px; font-weight:700; cursor:pointer;
+}
+
+/* Four-field filter row */
+.yardx-filter4{
+  display:grid; grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap:12px; align-items:end; margin-bottom:10px;
+}
+.fcol label{ display:block; font-size:12px; color:#4a5e7a; margin-bottom:6px; }
+
+/* Search pill (Vessel Name) */
+.search-pill{
+  display:flex; align-items:center; gap:8px;
+  background:#fff; border:1px solid #d8e6f7; border-radius:10px;
+  min-height:40px; padding:0 12px; position:relative;
+}
+.search-pill input{
+  flex:1; border:none; outline:none; background:transparent;
+  color:#294666; font-weight:600; font-size:14px; padding:10px 0; padding-right:34px;
+}
+.search-pill input::placeholder{ color:#6b829f; font-weight:500; }
+.magnify{ font-size:16px; color:#6b829f; }
+.search-pill .arrow{
+  position:absolute; right:12px; color:#6b829f; font-size:14px; pointer-events:none;
+}
+
+/* Select pill (Status/Type) */
+.select-pill{
+  position:relative; display:flex; align-items:center;
+  background:#fff; border:1px solid #d8e6f7; border-radius:10px; padding:0 12px;
+  min-height:40px;
+}
+.select-pill select{
+  appearance:none; -webkit-appearance:none; -moz-appearance:none;
+  border:none; outline:none; background:transparent; color:#294666;
+  font-weight:600; font-size:14px; padding:10px 0; width:100%;
+}
+.select-pill option{ color:#294666; }
+.select-pill .arrow{
+  position:absolute; right:10px; color:#6b829f; font-size:14px; pointer-events:none;
+}
+
+/* Common card */
+.yardx-card{
+  background:#fff; border:1px solid #dbe9ff; border-radius:10px;
+  box-shadow:0 8px 20px rgba(25,87,181,.08);
+  padding:10px 12px; margin-bottom:12px;
+}
+.yardx-title{ color:#294666; font-weight:700; margin-bottom:8px; }
+
+/* Pill headers */
+.yardx-pill{
+  display:inline-block; padding:8px 10px; border-radius:8px;
+  color:#fff; font-weight:700; font-size:13px;
+  box-shadow:0 8px 16px rgba(25,87,181,.14), inset 0 0 0 2px #ffffff66;
+}
+.pill-blue{ background:#094CA1; }
+.pill-cyan{ background:#094CA1; }
+.pill-teal{ background:#094CA1; }
+.pill-indigo{ background:#094CA1; }
+.pill-dark{ background:#094CA1; }
+
+/* Tables */
+.yardx-tablewrap{ overflow-x:auto; }
+.yardx-table{ width:100%; border-collapse: collapse; table-layout:fixed; }
+.yardx-table thead th{
+  text-align:left; padding:8px 6px; border-bottom:1px solid #eaf1fc;
+}
+.yardx-table tbody td{
+  padding:12px 6px; border-bottom:1px solid #f0f6ff; color:#1c2c40;
+}
+.yardx-view{
+  background:#27c8ff; color:#fff; border:none; border-radius:999px;
+  padding:8px 12px; font-weight:700; box-shadow:0 4px 10px rgba(39,200,255,.25);
+}
+
+/* Status chips */
+.chip{
+  display:inline-block; padding:6px 10px; border-radius:999px;
+  font-weight:700; font-size:12px; border:1px solid transparent;
+}
+.chip.red{ background:#ffe9e9; border-color:#ffc7c7; color:#a10f0f; }
+.chip.green{ background:#e8fff6; border-color:#bdf3dc; color:#0f8b69; }
+.chip.blue{ background:#e9f2ff; border-color:#cfe4ff; color:#0a4aa6; }
+.chip.orange{ background:#fff2e3; border-color:#ffd7b0; color:#a65a0a; }
+.chip.indigo{ background:#ececff; border-color:#d8d8ff; color:#3737a8; }
+
+/* Pagination bar */
+.yardx-pagerbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:8px;
+}
+.yardx-footnote{ color:#6b829f; font-size:13px; }
+.yardx-pager{ display:flex; gap:6px; align-items:center; }
+.pg{
+  min-width:30px; height:28px; padding:0 10px;
+  display:flex; align-items:center; justify-content:center;
+  background:#f3f8ff; border:1px solid #eaf1fc; border-radius:8px;
+  color:#294666; cursor:pointer; font-weight:600;
+}
+.pg:hover{ filter:brightness(.98); }
+.pg.active{
+  background:#1e64ff; border-color:#1e64ff; color:#fff;
+  box-shadow:0 4px 10px rgba(30,100,255,.25);
+}
+.pg.nav{ min-width:28px; padding:0 8px; }
+.pg.nav[disabled]{ opacity:.5; cursor:not-allowed; }
+.pg.ellipsis{ background:transparent; border:none; color:#6b829f; cursor:default; }
+
+/* Bottom toolbar + filter bar */
+.yardx-toolbar{
+  display:grid; grid-template-columns: 1fr auto; align-items:center;
+  background:#fff; border:1px solid #dbe9ff; border-radius:10px;
+  padding:10px 12px; margin-bottom:10px;
+}
+.yardx-toolbar-title{ color:#294666; font-weight:700; }
+
+.yardx-filterbar{
+  display:grid; grid-template-columns: 220px 220px 1fr; gap:12px;
+  align-items:end; background:#fff; border:1px solid #dbe9ff; border-radius:10px;
+  padding:10px 12px; margin-bottom:12px;
+}
+.yardx-filter label{ display:block; font-size:12px; color:#000000; margin-bottom:6px; }
+.yardx-filter select{
+  width:100%; padding:10px 12px; border:1px solid #d8e6f7; border-radius:10px; background:#f8fbff; outline:none;
+  color:#294666; font-weight:600; font-size:14px;
+}
+.yardx-filter.stretch{ grid-column: 3 / 4; }
+.yardx-searchbox{ position:relative; }
+.yardx-magnify{ position:absolute; left:10px; top:50%; transform:translateY(-50%); color:#6b829f; }
+.yardx-searchbox input{
+  width:100%; padding:10px 12px 10px 32px; border:1px solid #d8e6f7; border-radius:10px; background:#f8fbff; outline:none;
+  color:#294666; font-weight:600; font-size:14px;
+}
+.yardx-searchbox input::placeholder{ color:#6b829f; }
+
+/* Modal */
+.yardx-modalback{
+  position:fixed; inset:0; background:rgba(0,0,0,.25); display:grid; place-items:center; z-index:50;
+}
+.yardx-modal{
+  width:560px; max-width:92vw; background:#fff; border:1px solid #dbe9ff; border-radius:10px;
+  box-shadow:0 16px 40px rgba(0,0,0,.25);
+}
+.yardx-modalhead{
+  display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-bottom:1px dashed #9bd0ff;
+}
+.yardx-close{
+  background:#ff734a; color:#fff; border:none; border-radius:8px; padding:6px 10px; cursor:pointer;
+}
+.yardx-modalform label{ font-size:12px; color:#000000; }
+.yardx-modalform input{
+  padding:10px 12px; border:1px solid #d8e6f7; border-radius:10px; background:#f8fbff; outline:none;
+  color:#294666; font-weight:600; font-size:14px;
+}
+.yardx-modactions{ display:flex; gap:10px; margin-top:8px; }
+
+/* Header tables outside cards — match card padding so columns line up */
+.yardx-pillheaders{ margin-bottom:16px; }
+.top-header-table{ width:100%; border-collapse:collapse; margin:0; table-layout:fixed; }
+.top-header-table thead th{ text-align:left; padding:0; border-bottom:none; }
+.top-header-table .yardx-pill{ display:inline-block; }
+
+/* Extended header table for bottom section */
+.yardx-extended-headers{ margin-top:16px; }
+
+/* If the extended header is moved inside the scroll wrapper, keep a small gap below it */
+.yardx-tablewrap > .extended-header-table{ margin-bottom:8px; }
+.extended-header-table{ width:100%; border-collapse:collapse; margin:0; table-layout:fixed; }
+.extended-header-table thead th{ text-align:left; padding:0; border-bottom:none; }
+.extended-header-table .yardx-pill{ display:inline-block; }
+
+/* Make header pills full-width blocks so each header cell has consistent size */
+.top-header-table thead th .yardx-pill,
+.extended-header-table thead th .yardx-pill{
+  display:inline-block; width:calc(100% - 2px); box-sizing:border-box; height:38px; line-height:38px;
+  padding:0 10px; border-radius:8px; text-align:left; overflow:hidden; margin-right:2px;
+}
+.top-header-table thead th .yardx-pill:last-child,
+.extended-header-table thead th .yardx-pill:last-child{
+  margin-right:0;
+}
+
+/* ensure th and td vertical padding align so header height matches body rows */
+.top-header-table thead th, .extended-header-table thead th{
+  vertical-align:middle;
+}
+.yardx-table tbody td{ padding:12px 6px; }
+
+/* Allow long header pills (e.g. "Target Completion") to wrap onto a second line
+   so the label remains fully visible on narrow columns. */
+.extended-header-table thead th:nth-child(9) .yardx-pill{
+  display:inline-block; max-width:84px; white-space:normal; line-height:1.05; word-break:break-word;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .yardx-filter4{ grid-template-columns: 1fr; }
+  .yardx-filterbar{ grid-template-columns: 1fr; }
+  .yardx-filter.stretch{ grid-column:auto; }
+}
+
+/* --- Prevent wrapping for date columns --- */
+
+/* Top header & body: Departure Date is the 4th column */
+.top-header-table thead th:nth-child(4),
+.yardx-table tbody td:nth-child(4) {
+  white-space: nowrap;       /* keep on one line */
+  overflow: hidden;          /* hide overflow */
+  text-overflow: ellipsis;   /* show ellipsis if truncated */
+  word-break: normal;        /* avoid breaking characters */
+}
+
+/* Extended header & body: Target Completion is the 9th column */
+.extended-header-table thead th:nth-child(9),
+/* ensure we only target the extended body table — it has 9 columns */
+.yardx-card .yardx-table colgroup + tbody td:nth-child(9) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: normal;
+}

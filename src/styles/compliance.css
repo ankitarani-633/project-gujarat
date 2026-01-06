@@ -1,0 +1,188 @@
+
+/* Theme tokens (aligned with your Training/IHM styles) */
+:root{
+  --blue-600:#1e64ff;
+  --blue-700:#0f55c7;
+  --blue-200:#cfe4ff;
+  --teal-500:#23c4c4;
+  --ink-900:#15223a;
+  --ink-700:#294666;
+  --ink-500:#4a5e7a;
+  --ink-400:#6b829f;
+  --bg-50:#f6fbff;
+  --bg-100:#f7fbff;
+  --white:#fff;
+  --shadow:0 8px 20px rgba(25,87,181,.08);
+
+  --cyan-600:#0aa3ff;
+  --cyan-100:#e9f8ff;
+  --green-600:#179d62;
+  --amber-600:#ff8a00;
+  --purple-600:#5b3fd6;
+}
+
+/* Shell layout */
+.compx-shell{ display:flex; flex-direction:column; min-height:100vh; background:var(--bg-50); }
+.compx-row{ display:flex; min-height:calc(100vh - 68px); }
+.compx-main{ flex:1; padding:18px; }
+
+/* Gradient header bar */
+.compx-titlebar{
+  display:grid; grid-template-columns: 1fr auto; align-items:center;
+  background:linear-gradient(90deg,#23c4c4,#1e64ff);
+  color:var(--white); border-radius:10px;
+  padding:12px 14px; margin-bottom:12px;
+  box-shadow: var(--shadow);
+}
+.compx-title-left{ display:flex; align-items:center; gap:12px; }
+.compx-title-icon{
+  width:34px; height:34px; border-radius:8px;
+  display:grid; place-items:center; background:#ffffff1f; border:1px solid #fff; font-size:18px;
+}
+.compx-title{ display:flex; flex-direction:column; gap:2px; }
+.cx-welcome{ font-weight:700; }
+.cx-sub{ opacity:.95; font-weight:700; } /* "Performance Dashboard" */
+.compx-title-actions{ display:flex; align-items:center; gap:8px; }
+.cx-role-chip{
+  background:#ffffff1f; border:1px solid #fff; color:#fff; border-radius:20px;
+  padding:8px 12px; font-weight:700;
+}
+
+/* Grid of metric cards */
+.cx-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap:12px;
+  margin-bottom:12px;
+}
+.cx-card{
+  background:var(--white); border:1px solid #eaf1fc; border-radius:10px;
+  box-shadow: var(--shadow);
+  padding:12px;
+  display:grid; grid-template-columns: auto 1fr; gap:12px;
+}
+.cx-card-head{ display:flex; align-items:flex-start; }
+.cx-icon{
+  width:40px; height:40px; display:grid; place-items:center;
+  border-radius:10px; border:1px solid var(--blue-200); background:var(--bg-100);
+  font-size:20px;
+}
+
+/* Icon tone themes */
+.cx-icon.green{ color:var(--green-600); background:#eafaf3; border-color:#d9f4e7; }   /* clock */
+.cx-icon.blue{ color:var(--blue-700); background:#eaf2ff; border-color:#cfe4ff; }     /* calendar */
+.cx-icon.cyan{ color:var(--cyan-600); background:var(--cyan-100); border-color:#c9efff; } /* violations */
+.cx-icon.teal{ color:#23c4c4; background:#e7fbfb; border-color:#bff1f1; }               /* avg. report time */
+.cx-icon.orange{ color:var(--amber-600); background:#fff3e6; border-color:#ffe1c2; }    /* ratio */
+.cx-icon.purple{ color:var(--purple-600); background:#f4efff; border-color:#d7d6ff; }   /* monthly */
+
+.cx-card-body{ display:flex; flex-direction:column; gap:4px; }
+.cx-title{ color:var(--ink-500); font-weight:700; }
+.cx-value{ color:var(--ink-900); font-weight:800; font-size:22px; }
+
+/* ---------- Chart card ---------- */
+.cx-chartcard{
+  background:var(--white); border:1px solid #eaf1fc; border-radius:10px;
+  box-shadow: var(--shadow);
+  padding:10px 12px; margin-top:8px;
+}
+.cx-charthead{
+  display:grid; grid-template-columns: 1fr auto; align-items:center; gap:12px;
+  padding-bottom:8px; border-bottom:1px solid #eaf1fc;
+}
+.cx-charthead-left{ display:flex; flex-direction:column; gap:2px; }
+.cx-charttitle{ color:var(--ink-700); font-weight:700; display:flex; align-items:center; gap:8px; }
+.cx-chartbullet{ font-size:16px; }
+.cx-chartsub{ color:var(--ink-500); font-size:12px; }
+
+.cx-year{ display:flex; align-items:center; gap:8px; }
+.cx-year-label{ color:var(--ink-700); font-weight:700; }
+.cx-year-select{
+  background:#f7fbff; border:1px solid #eaf1fc; border-radius:8px; color:var(--ink-700);
+  padding:6px 10px; font-weight:700; cursor:pointer; outline:none;
+}
+
+.cx-chart{ padding:10px 4px 8px; }
+.bars{
+  display:grid; grid-template-columns: repeat(12, 1fr); gap:10px;
+  align-items:end; width:100%; height:170px;
+}
+.barwrap{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+.bar{
+  width:100%; max-width:34px;
+  background:var(--cyan-600);
+  border-radius:8px;
+  box-shadow: 0 4px 12px rgba(10,163,255,.25);
+  transition: height .35s ease;
+}
+.barlabel{
+  color:#7a8fa6; font-size:11px; text-align:center;
+  white-space:nowrap;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .cx-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 720px){
+  .bars{
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: minmax(40px, 1fr);
+    overflow-x: auto;
+    padding-bottom:6px;
+  }
+  .bar{ max-width:28px; }
+  .barlabel{ font-size:10px; }
+}
+@media (max-width: 640px){
+  .compx-titlebar{ grid-template-columns: 1fr; row-gap:8px; }
+}
+
+/* ---------- Line chart card ---------- */
+.cx-linecard{
+  background:var(--white); border:1px solid #eaf1fc; border-radius:10px;
+  box-shadow: var(--shadow);
+  padding:10px 12px; margin-top:10px;
+}
+.cx-linewrap{
+  width:100%; overflow-x:auto; padding:8px 2px 10px;
+}
+.cx-linesvg{ width:100%; max-width:860px; height:auto; display:block; }
+.axis{ stroke:#e2e8f5; stroke-width:1.4; }
+
+.line{
+  fill:none; stroke-width:3;
+  filter: drop-shadow(0 2px 6px rgba(25,87,181,.15));
+}
+.line.meetings{ stroke:#0f55c7; }   /* deep blue */
+.line.briefings{ stroke:#0aa3ff; }  /* cyan */
+
+.dot{
+  stroke:#fff; stroke-width:2;
+  filter: drop-shadow(0 2px 6px rgba(10,163,255,.25));
+}
+.dot.meetings{ fill:#0f55c7; }
+.dot.briefings{ fill:#0aa3ff; }
+
+.ticklabel{
+  fill:#7a8fa6; font-size:11px; text-anchor:middle;
+}
+
+@media (max-width: 720px){
+  .cx-linesvg{ min-width:640px; } /* allow horizontal scroll on small screens */
+}
+
+/* ---------- Next button ---------- */
+.cx-nextbar{
+  display:flex; justify-content:flex-end;
+  margin-top:12px;
+}
+.cx-nextbtn{
+  background:linear-gradient(90deg,#1e64ff,#0aa3ff);
+  color:#fff; border:none; border-radius:10px;
+  padding:12px 22px; font-weight:800;
+  box-shadow:0 8px 16px rgba(30,100,255,.25);
+  cursor:pointer;
+}
+.cx-nextbtn:hover{ filter:brightness(.96); }

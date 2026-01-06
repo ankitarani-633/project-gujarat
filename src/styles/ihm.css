@@ -1,0 +1,291 @@
+
+/* Shell layout */
+.ihmx-shell{ display:flex; flex-direction:column; min-height:100vh; background:#f6fbff; }
+.ihmx-row{ display:flex; min-height:calc(100vh - 68px); }
+.ihmx-main{ flex:1; padding:18px; }
+
+/* Blue section title bar */
+.ihmx-titlebar{
+  display:grid; grid-template-columns: 1fr auto; align-items:center;
+  background:#1e64ff; color:#fff; border-radius:8px;
+  padding:10px 12px; margin-bottom:10px;
+}
+.ihmx-title-left{ display:flex; align-items:center; gap:8px; }
+.ihmx-title-icon{
+  width:28px; height:28px; border-radius:6px;
+  display:grid; place-items:center; background:#ffffff22; border:1px solid #fff; font-size:16px;
+}
+.ihmx-title{ font-weight:700; }
+.ihmx-title-actions{ display:flex; gap:8px; }
+.ihmx-iconbtn{
+  background:#ffffff22; border:1px solid #fff; color:#fff;
+  border-radius:6px; padding:6px 10px; cursor:pointer;
+}
+
+/* Card */
+.ihmx-card{
+  background:#fff; border:1px solid #eaf1fc; border-radius:8px;
+  box-shadow:0 8px 20px rgba(25,87,181,.08);
+  padding:12px; margin-bottom:12px;
+}
+.ihmx-cardtitle{ color:#6b829f; font-weight:700; margin-bottom:8px; }
+
+/* 3-column grid for fields */
+.ihmx-grid{
+  display:grid; grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap:12px;
+}
+.ihmx-field{ display:flex; flex-direction:column; gap:6px; }
+.ihmx-label{ font-size:13px; color:#4a5e7a; font-weight:600; }
+.req{ color:#d7263d; margin-left:4px; }
+.ihmx-input{
+  padding:10px 12px; border:1px solid #d8e6f7; border-radius:10px;
+  background:#f8fbff; outline:none; color:#294666; font-weight:600;
+}
+.ihmx-input:focus{ border-color:#4aa3ff; box-shadow:0 0 0 3px #e6f3ff; }
+.ihmx-spacer{ display:none; } /* only to balance grid rows */
+
+/* Checkbox lines */
+.ihmx-checkline{
+  display:grid; grid-template-columns: 1fr auto; align-items:center;
+  border:1px dashed #e6eefc; border-radius:8px; padding:8px 10px; margin-bottom:8px;
+}
+.ihmx-checktext{ margin:0; color:#294666; }
+.ihmx-checkwrap input{
+  width:18px; height:18px; cursor:pointer;
+}
+
+/* Actions row */
+.ihmx-actions{ display:flex; gap:10px; justify-content:flex-end; }
+.btn-primary{
+  background:linear-gradient(90deg,#1e64ff,#0aa3ff); color:#fff; border:none; border-radius:10px;
+  padding:10px 16px; font-weight:700; box-shadow:0 8px 16px rgba(30,100,255,.25); cursor:pointer;
+}
+.btn-primary:hover{ filter:brightness(.96); }
+.btn-secondary{
+  background:#26c1a1; color:#fff; border:none; border-radius:10px;
+  padding:10px 16px; font-weight:700; cursor:pointer;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .ihmx-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .ihmx-grid{ grid-template-columns: 1fr; }
+  .ihmx-titlebar{ grid-template-columns: 1fr; row-gap:8px; }
+}
+
+/* Shell layout */
+.ihmx-shell{ display:flex; flex-direction:column; min-height:100vh; background:#f6fbff; }
+.ihmx-row{ display:flex; min-height:calc(100vh - 68px); }
+.ihmx-main{ flex:1; padding:18px; }
+
+/* Blue section title bar */
+.ihmx-titlebar{
+  display:grid; grid-template-columns: 1fr auto; align-items:center;
+  background:#1e64ff; color:#fff; border-radius:8px;
+  padding:10px 12px; margin-bottom:10px;
+}
+.ihmx-title-left{ display:flex; align-items:center; gap:8px; }
+.ihmx-title-icon{
+  width:28px; height:28px; border-radius:6px;
+  display:grid; place-items:center; background:#ffffff22; border:1px solid #fff; font-size:16px;
+}
+.ihmx-title{ font-weight:700; }
+.ihmx-title-actions{ display:flex; gap:8px; }
+.ihmx-iconbtn{
+  background:#ffffff22; border:1px solid #fff; color:#fff;
+  border-radius:6px; padding:6px 10px; cursor:pointer;
+}
+
+/* Cards */
+.ihmx-card{
+  background:#fff; border:1px solid #eaf1fc; border-radius:8px;
+  box-shadow:0 8px 20px rgba(25,87,181,.08);
+  padding:12px; margin-bottom:12px;
+}
+.ihmx-cardtitle{ color:#6b829f; font-weight:700; margin-bottom:8px; }
+
+/* Grids */
+.ihmx-grid{  display:grid; grid-template-columns: repeat(3, minmax(220px, 1fr)); gap:12px; }
+.ihmx-grid1{ display:grid; grid-template-columns: 1fr; gap:12px; }
+.ihmx-grid2{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+.ihmx-grid3{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px; }
+
+/* Fields */
+.ihmx-field{ display:flex; flex-direction:column; gap:6px; }
+.ihmx-label{ font-size:13px; color:#4a5e7a; font-weight:600; }
+.req{ color:#d7263d; margin-left:4px; }
+.ihmx-input{
+  padding:10px 12px; border:1px solid #d8e6f7; border-radius:10px;
+  background:#f8fbff; outline:none; color:#294666; font-weight:600;
+}
+.ihmx-input:focus{ border-color:#4aa3ff; box-shadow:0 0 0 3px #e6f3ff; }
+.ihmx-textarea{
+  padding:10px 12px; border:1px solid #d8e6f7; border-radius:10px;
+  background:#f8fbff; outline:none; color:#294666; font-weight:600; resize:vertical;
+}
+.ihmx-textarea:focus{ border-color:#4aa3ff; box-shadow:0 0 0 3px #e6f3ff; }
+.ihmx-spacer{ display:none; } /* used only to balance 3-col rows */
+
+/* Checkbox statements */
+.ihmx-checkline{
+  display:grid; grid-template-columns: 1fr auto; align-items:center;
+  border:1px dashed #e6eefc; border-radius:8px; padding:8px 10px; margin-bottom:8px;
+}
+.ihmx-checktext{ margin:0; color:#294666; }
+.ihmx-checkwrap input{ width:18px; height:18px; cursor:pointer; }
+
+/* Date pill (input with icon) */
+.ihmx-datepill{
+  display:flex; align-items:center; gap:8px;
+  background:#f7fbff; border:1px solid #eaf1fc; border-radius:8px;
+  padding:8px 10px;
+}
+.ihmx-datepill input{
+  border:none; outline:none; background:transparent; color:#294666; font-weight:600;
+}
+.ihmx-calendar{ font-size:16px; }
+
+/* Inventory number gradient pill */
+.ihmx-numberbar{
+  display:flex; align-items:center; gap:12px;
+  padding:8px 2px; margin-top:4px; margin-bottom:8px;
+}
+.ihmx-numberlabel{ color:#6b829f; font-weight:700; }
+.ihmx-numberchip{
+  flex:1;
+  background: linear-gradient(90deg, #23c4c4, #1e64ff);
+  color:#fff; border:1px solid #cfe4ff;
+  border-radius:12px; padding:10px 14px; font-weight:700;
+  box-shadow:0 8px 20px rgba(25,87,181,.12);
+  text-align:center; letter-spacing:0.04em;
+}
+
+/* Actions */
+.ihmx-actions{ display:flex; gap:10px; justify-content:flex-end; }
+.btn-primary{
+  background:linear-gradient(90deg,#1e64ff,#0aa3ff); color:#fff; border:none; border-radius:10px;
+  padding:10px 16px; font-weight:700; box-shadow:0 8px 16px rgba(30,100,255,.25); cursor:pointer;
+}
+.btn-primary:hover{ filter:brightness(.96); }
+.btn-secondary{
+  background:#26c1a1; color:#fff; border:none; border-radius:10px;
+  padding:10px 16px; font-weight:700; cursor:pointer;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .ihmx-grid{  grid-template-columns: repeat(2, 1fr); }
+  .ihmx-grid2{ grid-template-columns: 1fr; }
+  .ihmx-grid3{ grid-template-columns: 1fr; }
+}
+@media (max-width: 640px){
+   .ihmx-titlebar{ grid-template-columns: 1fr; row-gap:8px; }
+  .ihmx-grid{  grid-template-columns: 1fr; }
+}
+
+/* ---------- Beaching Permission ---------- */
+.ihmx-beach{
+  margin-top: 6px;
+}
+
+.ihmx-beach-title{
+  color:#6b829f;
+  font-weight:700;
+  margin: 6px 0 8px;
+}
+
+/* Subcards container */
+.ihmx-subcard{
+  background:#fff;
+  border:1px solid #e6edf7;
+  border-radius:8px;
+  box-shadow:0 8px 20px rgba(25,87,181,.08);
+  margin-bottom:10px;
+}
+
+/* Subcard headers */
+.ihmx-subhead{
+  padding:10px 12px;
+  border-bottom:1px solid #eaf1fc;
+  font-weight:700;
+}
+.ihmx-subhead.light{
+  background:#f7fbff;
+  color:#294666;
+}
+.ihmx-subhead.dark{
+  background:#0f55c7; /* deep blue like PNG */
+  color:#fff;
+  border-top-left-radius:8px;
+  border-top-right-radius:8px;
+}
+
+/* Vessel Information table */
+.ihmx-vesselinfo{
+  width:100%;
+  border-collapse:collapse;
+  margin:8px 12px 12px;
+}
+.ihmx-vesselinfo td{
+  padding:10px 6px;
+  border-bottom:1px dashed #e6eefc;
+}
+.ihmx-vesselinfo tr:last-child td{
+  border-bottom:none;
+}
+.vi-label{ color:#6b829f; font-weight:600; }
+.vi-value{ color:#294666; }
+
+/* Compliance Summery checklist */
+.ihmx-checklist{
+  list-style:none;
+  margin:0;
+  padding:8px 12px 4px;
+}
+.ihmx-checkrow{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:10px 4px;
+  border-bottom:1px dashed #e6eefc;
+}
+.ihmx-checkrow:last-child{
+  border-bottom:none;
+}
+.ihmx-tick{
+  width:18px; height:18px;
+  display:grid; place-items:center;
+  border:1px solid #cfe4ff;
+  border-radius:4px;
+  font-size:12px;
+  font-weight:700;
+  color:#5b3fd6; /* purple tick */
+  background:#f2ecff;
+}
+.ihmx-tick.purple{
+  border-color:#d7d6ff;
+}
+
+/* Approve button bar */
+.ihmx-approvebar{
+  display:flex;
+  justify-content:flex-end;
+  padding:10px 12px 12px;
+}
+.ihmx-approve{
+  background:#1e64ff;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:10px 18px;
+  font-weight:700;
+  box-shadow:0 8px 16px rgba(30,100,255,.25);
+  cursor:pointer;
+}
+.ihmx-approve:hover{
+  filter:brightness(.96);
+}
