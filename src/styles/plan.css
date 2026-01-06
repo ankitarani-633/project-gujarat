@@ -240,26 +240,35 @@
 }
 .tidex-caption{ color:#6b829f; font-weight:700; margin:0 0 10px 0; }
 
+/* Controls moved into the tidex-body; create a three-column layout: controls | calendar | legend */
+.tidex-body{
+  display:grid; grid-template-columns: 260px 1fr 200px; gap:20px; align-items:start; margin-bottom:0;
+}
+
 .tidex-controls{
-  display:grid; grid-template-columns: auto auto 1fr; gap:12px; align-items:center; margin-bottom:12px;
+  /* left column */
+  display:flex; align-items:center; justify-content:center; padding:12px; height:100%;
+}
+.tidex-controls-inner{
+  display:flex; flex-direction:column; gap:14px; width:100%; align-items:center;
 }
 .tidex-pill{
-  display:flex; align-items:center; gap:8px;
-  background:#f7fbff; border:1px solid #eaf1fc; border-radius:8px; padding:10px 12px;
+  display:flex; align-items:center; gap:8px; width:100%; justify-content:center;
+  background:#f7fbff; border:1px solid #eaf1fc; border-radius:999px; padding:10px 16px;
 }
 .tidex-pill input{
-  border:none; background:transparent; outline:none; color:#294666; font-weight:600; width:120px;
+  border:none; background:transparent; outline:none; color:#294666; font-weight:600; width:120px; text-align:center;
 }
 .tidex-icon{ font-size:16px; }
-.tidex-search{ justify-self:start; }
+.tidex-search{ width:100%; padding:12px 18px; border-radius:10px; }
 
-.tidex-body{
-  display:grid; grid-template-columns: 1fr auto; gap:16px; align-items:start;
+.tidex-calendar{
+  background:#fff; border:1px solid #eaf1fc; border-radius:8px; padding:12px; height:100%;
 }
 
 /* Calendar card */
-.tidex-calendar{
-  background:#fff; border:1px solid #eaf1fc; border-radius:8px; padding:8px 10px;
+.tidex-legend{
+  background:#fff; border:1px solid #eaf1fc; border-radius:8px; padding:12px; min-width:160px; height:100%;
 }
 .tidex-calhead{
   display:grid; grid-template-columns: auto 1fr auto; align-items:center; gap:8px; margin-bottom:6px;
@@ -286,11 +295,15 @@
   background:#1e64ff; color:#fff; border-color:#1e64ff;
   box-shadow:0 4px 10px rgba(30,100,255,.25);
 }
+.tidex-day.in-range{
+  background: linear-gradient(90deg, rgba(30,100,255,0.08), rgba(10,163,255,0.04));
+  border-color: rgba(30,100,255,0.12);
+}
 .tidex-day.blank{ border:none; background:transparent; }
 
 /* Legend */
-.tidex-legend{
-  background:#fff; border:1px solid #eaf1fc; border-radius:8px; padding:10px 12px; min-width:160px;
+.tidex-calhead{
+  display:grid; grid-template-columns: auto 1fr auto; align-items:center; gap:8px; margin-bottom:6px;
 }
 .tidex-legtitle{ color:#6b829f; font-weight:700; margin-bottom:6px; }
 .tidex-legitem{ display:flex; align-items:center; gap:8px; color:#294666; margin:6px 0; }

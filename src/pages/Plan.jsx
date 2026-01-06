@@ -53,6 +53,9 @@ export default function Plan() {
 
   const [tab, setTab] = useState("Compliance");
   const [file, setFile] = useState(null);
+  const [fromDate, setFromDate] = useState("2025-04-01");
+  const [toDate, setToDate] = useState("2025-04-01");
+  const [range, setRange] = useState(null); // { start: number, end: number }
 
   const addDocument = () => {
     if (!file) return alert("Please choose a file first.");
@@ -286,20 +289,50 @@ export default function Plan() {
       <h3 className="tidex-caption">Tide Window</h3>
 
       {/* Controls */}
-      <div className="tidex-controls">
-        <div className="tidex-pill">
-          <span className="tidex-icon">📅</span>
-          <input aria-label="from date" defaultValue="Apr 1, 2025" />
-        </div>
-        <div className="tidex-pill">
-          <span className="tidex-icon">📅</span>
-          <input aria-label="to date" defaultValue="Apr 1, 2025" />
-        </div>
-        <button className="btn-primary tidex-search">Search</button>
-      </div>
-
       {/* Calendar + Legend */}
       <div className="tidex-body">
+          <div className="tidex-controls">
+            <div className="tidex-controls-inner">
+              <div className="tidex-pill">
+                <span className="tidex-icon">📅</span>
+                <input
+                  aria-label="from date"
+                  type="date"
+                  value={fromDate}
+                  onChange={(e) => setFromDate(e.target.value)}
+                />
+              </div>
+              <div className="tidex-pill">
+                <span className="tidex-icon">📅</span>
+                <input
+                  aria-label="to date"
+                  type="date"
+                  value={toDate}
+                  onChange={(e) => setToDate(e.target.value)}
+                />
+              </div>
+              <button
+                className="btn-primary tidex-search"
+                onClick={() => {
+                  // parse dates and compute day range for April 2025
+                  const f = new Date(fromDate);
+                  const t = new Date(toDate);
+                  if (isNaN(f) || isNaN(t)) return alert('Please provide valid dates');
+                  if (f > t) return alert('From date must be before To date');
+                  // ensure month/year are April 2025 for this demo calendar
+                  if (f.getFullYear() !== 2025 || t.getFullYear() !== 2025 || f.getMonth() !== 3 || t.getMonth() !== 3) {
+                    // month is zero-based; April = 3
+                    // for simplicity notify user (could be adapted to any month)
+                    return alert('Please choose dates within April 2025');
+                  }
+                  setRange({ start: f.getDate(), end: t.getDate() });
+                }}
+              >
+                Search
+              </button>
+            </div>
+          </div>
+
         <div className="tidex-calendar">
           <div className="tidex-calhead">
             <button className="tidex-nav">‹</button>
@@ -316,10 +349,12 @@ export default function Plan() {
 
             {Array.from({ length: 30 }, (_, i) => {
               const day = i + 1;
-              const cls =
-                day === 20 ? "tidex-day selected" :
-                day % 6 === 0 ? "tidex-day assigned" :
-                day % 5 === 0 ? "tidex-day not" : "tidex-day available";
+              const base =
+                day === 20 ? "selected" :
+                day % 6 === 0 ? "assigned" :
+                day % 5 === 0 ? "not" : "available";
+              const inRange = range && day >= range.start && day <= range.end;
+              const cls = `tidex-day ${base}${inRange ? ' in-range' : ''}`;
               return (
                 <div key={day} className={cls}>{day}</div>
               );
