@@ -9,6 +9,11 @@
   background: #f6fbff;
 }
 
+/* ensure consistent sizing so elements don't unexpectedly grow/shrink */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* Top gradient header */
 .header {
   display: grid;
@@ -73,7 +78,12 @@
 
 /* Sidebar */
 .sidebar {
-  width: 320px;
+  /* use flex-basis to keep the sidebar stable inside the flex content area
+     and prevent it from collapsing or stretching at different zoom levels */
+  flex: 0 0 320px;
+  width: 320px; /* fallback for older browsers */
+  max-width: 360px;
+  min-width: 260px;
   padding: 18px;
   border-right: 1px solid #f0f3f6;
   background: #fff;
@@ -97,6 +107,10 @@
   color: #294666;
   text-align: left;
   transition: all .18s ease;
+  /* prevent the buttons from growing past the sidebar and keep text readable */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .nav-item:hover {
   transform: translateY(-2px);
