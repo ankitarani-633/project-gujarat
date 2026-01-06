@@ -1,0 +1,132 @@
+
+/* ---------- Theme ---------- */
+:root{
+  --bg-app: #f6fbff;         /* very light bluish background (as in PNG) */
+  --card-bg: #ffffff;
+  --card-br: #d9d9d9;        /* soft outer card border */
+  --inner-bg: #f9fafb;       /* light inner panel */
+  --inner-br: #e6e6e6;       /* inner panel border */
+  --ink-heading: #545c65;    /* heading text color */
+  --ink-label: #5c6a76;      /* row label color */
+  --ink-value: #1c2c40;      /* right column value color */
+  --row-dash: #d9dee5;       /* dashed separator color */
+  --dot-blue: #2ea6ff;       /* left indicator dot */
+  /* badges */
+  --green-bg: #e7f7cf;
+  --green-ink: #4f7d3b;
+  --green-br: #bcd88a;
+  --blue-bg: #00a3e0;        /* cyan pill */
+  --blue-ink: #ffffff;
+  --blue-br: #0093c8;
+}
+
+*{ box-sizing: border-box; }
+
+.bc-page{
+  /* min-height: 100vh; */
+  background: var(--bg-app);
+  padding: 24px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+/* Outer card exactly like PNG: rounded, thin grey border */
+.bc-card{
+  max-width: 420px;          /* matches the PNG proportions */
+  background: var(--card-bg);
+  border: 1px solid var(--card-br);
+  border-radius: 10px;
+  padding: 14px;
+  margin: 0 auto;            /* center on page */
+}
+
+.bc-title{
+  margin: 0 0 12px 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink-heading);
+}
+
+/* Inner panel with subtle border and rounded corners */
+.bc-panel{
+  background: var(--inner-bg);
+  border: 1px solid var(--inner-br);
+  border-radius: 10px;
+  padding: 12px;
+  overflow: hidden;          /* clip dashed lines to the rounded corners */
+}
+
+/* Table layout */
+.bc-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bc-table tbody tr{
+  border-bottom: 1px dashed var(--row-dash);
+}
+.bc-table tbody tr:last-child{
+  border-bottom: none;
+}
+
+.bc-dotcol{ width: 26px; }
+.bc-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--dot-blue);
+  vertical-align: middle;
+  position: relative;
+  top: 1px;
+}
+
+.bc-label{
+  color: var(--ink-label);
+  font-weight: 600;
+  padding: 12px 8px;
+}
+
+/* Vertical dashed divider column to mimic PNG */
+.bc-vdiv{
+  width: 1px;
+  border-left: 1px dashed var(--row-dash);
+}
+
+.bc-value{
+  text-align: right;
+  color: var(--ink-value);
+  padding: 12px 8px;
+}
+
+.bc-ref{
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+/* Pill badges (green + blue) */
+.bc-badge{
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 10px;        /* PNG uses rounded (not fully pill), 10px feels right */
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+/* Approved (green) */
+.bc-badge-green{
+  background: var(--green-bg);
+  color: var(--green-ink);
+  border-color: var(--green-br);
+}
+
+/* Apr 1, 2025 (blue) */
+.bc-badge-blue{
+  background: var(--blue-bg);
+  color: var(--blue-ink);
+  border-color: var(--blue-br);
+  border-radius: 999px;       /* date looks fully pill in PNG */
+  padding: 8px 16px;
+}

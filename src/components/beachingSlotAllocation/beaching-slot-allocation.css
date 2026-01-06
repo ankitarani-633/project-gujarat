@@ -1,0 +1,115 @@
+
+/* ================= Theme tokens (tuned to PNG) ================= */
+:root{
+  --bg-app: #f6fbff;    /* page background */
+  --card-bg: #ffffff;   /* outer card background */
+  --card-br: #e6e6e6;   /* thin grey border on outer card */
+  --panel-bg: #fbfbfc;  /* inner light panel */
+  --panel-br: #e3e3e3;  /* inner panel border */
+
+  --ink-heading: #545c65; /* heading color */
+  --ink-label: #6b7c87;   /* row label color */
+  --ink-value: #2c333b;   /* right column text */
+  --row-dash: #d9dee5;    /* dashed separators */
+  --dot-blue: #2ea6ff;    /* left indicator dot */
+
+  --green-ink: #4f7d3b;   /* vessel name green */
+}
+
+/* Base */
+*{ box-sizing: border-box; }
+
+.bs-page{
+  /* min-height: 100vh; */
+  background: var(--bg-app);
+  padding: 24px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  display: grid;
+  place-items: start center; /* center horizontally in the viewport area */
+}
+
+/* Outer card like PNG: rounded, thin grey border, subtle padding */
+.bs-card{
+  width: 880px;               /* matches PNG scale */
+  background: var(--card-bg);
+  border: 1px solid var(--card-br);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+/* Heading exactly like PNG */
+.bs-title{
+  margin: 0 0 12px 0;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--ink-heading);
+}
+
+/* Inner panel with soft border and rounded corners */
+.bs-panel{
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-br);
+  border-radius: 10px;
+  padding: 10px 12px;
+  overflow: hidden;           /* clip dashed lines to rounded corners */
+}
+
+/* Table layout */
+.bs-table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bs-table tbody tr{
+  border-bottom: 1px dashed var(--row-dash);
+}
+.bs-table tbody tr:last-child{
+  border-bottom: none;
+}
+
+/* Columns */
+.bs-dotcol{ width: 28px; }
+.bs-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--dot-blue);
+  position: relative;
+  top: 1px; /* tiny visual alignment like PNG */
+}
+
+.bs-label{
+  color: var(--ink-label);
+  font-weight: 600;
+  padding: 14px 10px;
+}
+
+/* Vertical dashed divider between label and value columns */
+.bs-vdiv{
+  width: 1px;
+  border-left: 1px dashed var(--row-dash);
+}
+
+.bs-value{
+  text-align: right;
+  color: var(--ink-value);
+  padding: 14px 10px;
+  white-space: nowrap;
+}
+
+/* Vessel name in green (matches PNG) */
+.bs-green{
+  color: var(--green-ink);
+  font-weight: 700;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 920px){
+  .bs-card{ width: 100%; }
+}
+@media (max-width: 540px){
+  .bs-label{ padding: 12px 8px; }
+  .bs-value{ padding: 12px 8px; }
+}

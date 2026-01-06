@@ -105,6 +105,7 @@
   grid-template-columns: 1fr 1fr;
   gap:16px;
   margin-top:14px;
+  background-color: white;
 }
 
 .clearance-card{

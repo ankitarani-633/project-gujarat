@@ -1,0 +1,133 @@
+
+/* ================= Theme tokens to match PNG ================= */
+:root{
+  --bg-app: #f6fbff;    /* page background */
+  --card-bg: #ffffff;   /* outer card background */
+  --card-br: #d9d9d9;   /* thin gray border on outer card */
+  --panel-bg: #f4f4f4;  /* inner light panel (right card in PNG) */
+  --panel-br: #e3e3e3;  /* inner panel border */
+  --ink-heading: #545c65; /* "Document Verification" color */
+  --ink-name: #6b829f;    /* "Ocean Trader" subdued */
+  --ink-sub: #1a1a1a;     /* "IMO Number" bold black-ish */
+  /* yellow pill tones */
+  --pill-bg: #fff6c9;     /* soft banana yellow */
+  --pill-ink: #8a7a2a;    /* slightly olive text */
+  --pill-br: #cfd68a;     /* thin olive-ish border */
+  --pill-caret: #7fb23a;  /* green caret triangle */
+}
+
+/* ================= Layout ================= */
+*{ box-sizing: border-box; }
+
+.dv-page{
+  min-height: 100vh;
+  background: var(--bg-app);
+  padding: 24px;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  display: grid;
+  place-items: start center; /* center horizontally like PNG area */
+}
+
+/* Outer card exactly like PNG: rounded, thin grey border */
+.dv-card{
+  width: 440px;               /* close to the PNG width */
+  background: var(--card-bg);
+  border: 1px solid var(--card-br);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+/* Heading styling */
+.dv-title{
+  margin: 0 0 12px 0;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--ink-heading);
+}
+
+/* Inner panel with soft grey background and border */
+.dv-panel{
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-br);
+  border-radius: 10px;
+  padding: 18px 16px;
+}
+
+/* Content row inside inner panel */
+.dv-row{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  padding-bottom: 24px; /* adds the roomy feel from the PNG */
+}
+
+/* Left text block */
+.dv-left{ display: grid; gap: 6px; }
+.dv-name{
+  color: var(--ink-name);
+  font-weight: 600;
+}
+.dv-sub{
+  color: var(--ink-sub);
+  font-weight: 700; /* IMO Number is bold in PNG */
+}
+
+/* ================= Yellow pill ================= */
+.dv-pill{
+  justify-self: center;
+  min-width: 380px;           /* the wide pill matches PNG proportion */
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-br);
+  color: var(--pill-ink);
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: default;            /* PNG is just visual; not interactive */
+  box-shadow: none;
+}
+
+/* text inside pill */
+.dv-pill-text{
+  line-height: 1;
+}
+
+/* caret triangle at the right, small green like the screenshot */
+.dv-pill-caret{
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--pill-caret); /* downward triangle */
+  transform: translateY(1px);              /* small nudge for visual alignment */
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 480px){
+  .dv-card{ width: 100%; }
+  .dv-pill{ min-width: 100%; }
+}
+
+.dv-page-title{
+  margin: 0 0 14px 0;  /* explicit spacing below header */
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--ink-heading);
+}
+
+/* To ensure the card’s top padding is respected and not visually collapsed */
+.dv-card{
+  width: 440px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-br);
+  border-radius: 10px;
+  padding: 16px;       /* a smidge more padding */
+  overflow: hidden;    /* prevents margin-collapse visual artifacts */
+}

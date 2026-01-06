@@ -8,6 +8,11 @@ import { auth } from "../auth";
 import "../styles/plan.css";
 import checkCircle from "../images/checkCircle.png";
 import attach_file from "../images/attach_file.png";
+import BeachingClearance from "../components/beachingClearance/BeachingClearance";
+import DocumentVerification from "../components/beachingClearance/documentVerification/DocumentVerification";
+import DocumentType from "../components/documentType/DocumentType";
+import BeachingSlotAllocation from "../components/beachingSlotAllocation/BeachingSlotAllocation";
+import TideWindow from "../components/tideWindow/TideWindow";
 const YARD_ROWS = [
   {
     yardId: 101,
@@ -170,212 +175,15 @@ export default function Plan() {
                 </div>
                  
               </div>
-
-                            <div className="clearance-grid">
-                {/* Beaching Clearance */}
-                <div>
-                  <h3 className="clearance-title">Beaching Clearance</h3>
-                  
-                  <div className="clearance-body">
-                    <table className="info-table">
-                      <tbody>
-                        <tr>
-                          <td className="dot-col"><span className="dot"></span></td>
-                          <td className="label-col">Status</td>
-                          <td className="value-col">
-                            <span className="badge badge-green">Approved</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="dot-col"><span className="dot"></span></td>
-                          <td className="label-col">Approval Date</td>
-                          <td className="value-col">
-                            <span className="badge badge-blue">Apr 1, 2025</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="dot-col"><span className="dot"></span></td>
-                          <td className="label-col">Reference No.</td>
-                          <td className="value-col">
-                            <strong>BC-96765</strong>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                {/* Document Verification */}
-                <div>
-                  <h3 className="clearance-title">Document Verification</h3>
-                  <div className="clearance-body dv-body">
-                    <div className="dv-left">
-                      <div className="dv-title">Ocean Trader</div>
-                      <div className="dv-sub">IMO Number</div>
-                    </div>
-                    <div className="dv-right">
-                      <button className="badge badge-yellow dropdown">
-                        Submission Pending ▾
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-                {/* ▼ NEW: Document Type card */}
-    <section className="docx-card">
-      <div className="docx-head">
-        <div className="docx-title">Document Type</div>
-        <button className="docx-submit btn-primary">Submit</button>
-      </div>
-
-      <div className="docx-tablewrap">
-        <table className="docx-table">
-          <thead>
-            <tr>
-              <th>Document Type</th>
-              <th>Status</th>
-              <th>Last Modifier</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              { type: "Ship Recycle Facility Plan", status: "Not Submitted", last: "------" },
-              { type: "Inventory of Hazardous Materials", status: "Not Submitted", last: "------" },
-              { type: "Insurance Certificate", status: "Not Submitted", last: "------" },
-            ].map((r) => (
-              <tr key={r.type}>
-                <td>{r.type}</td>
-                <td className="docx-status docx-red">{r.status}</td>
-                <td className="docx-muted">{r.last}</td>
-                <td className="docx-action">
-                  <button className="docx-outline">Upload</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-
+<div style={{display:'flex', gap:'16px'}}>
+ <BeachingClearance />
+    <DocumentVerification />
+</div>
+          
+<DocumentType />
     {/* ▼ NEW: Beaching Slot Allocation card */}
-    <section className="beachx-card">
-      <h3 className="beachx-caption">Beaching Slot Allocation</h3>
-      <div className="beachx-panel">
-        <table className="beachx-info">
-          <tbody>
-            <tr>
-              <td className="beachx-dotcol"><span className="beachx-dot" /></td>
-              <td className="beachx-label">Vessel Name</td>
-              <td className="beachx-value"><strong>Sea Voyager</strong></td>
-            </tr>
-            <tr>
-              <td className="beachx-dotcol"><span className="beachx-dot" /></td>
-              <td className="beachx-label">Plot Number</td>
-              <td className="beachx-value">923184</td>
-            </tr>
-            <tr>
-              <td className="beachx-dotcol"><span className="beachx-dot" /></td>
-              <td className="beachx-label">GRT/NRT</td>
-              <td className="beachx-value">25,700/15,300</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    {/* ▼ NEW: Tide Window card */}
-    <section className="tidex-card">
-      <h3 className="tidex-caption">Tide Window</h3>
-
-      {/* Controls */}
-      {/* Calendar + Legend */}
-      <div className="tidex-body">
-          <div className="tidex-controls">
-            <div className="tidex-controls-inner">
-              <div className="tidex-pill">
-                <span className="tidex-icon">📅</span>
-                <input
-                  aria-label="from date"
-                  type="date"
-                  value={fromDate}
-                  onChange={(e) => setFromDate(e.target.value)}
-                />
-              </div>
-              <div className="tidex-pill">
-                <span className="tidex-icon">📅</span>
-                <input
-                  aria-label="to date"
-                  type="date"
-                  value={toDate}
-                  onChange={(e) => setToDate(e.target.value)}
-                />
-              </div>
-              <button
-                className="btn-primary tidex-search"
-                onClick={() => {
-                  // parse dates and compute day range for April 2025
-                  const f = new Date(fromDate);
-                  const t = new Date(toDate);
-                  if (isNaN(f) || isNaN(t)) return alert('Please provide valid dates');
-                  if (f > t) return alert('From date must be before To date');
-                  // ensure month/year are April 2025 for this demo calendar
-                  if (f.getFullYear() !== 2025 || t.getFullYear() !== 2025 || f.getMonth() !== 3 || t.getMonth() !== 3) {
-                    // month is zero-based; April = 3
-                    // for simplicity notify user (could be adapted to any month)
-                    return alert('Please choose dates within April 2025');
-                  }
-                  setRange({ start: f.getDate(), end: t.getDate() });
-                }}
-              >
-                Search
-              </button>
-            </div>
-          </div>
-
-        <div className="tidex-calendar">
-          <div className="tidex-calhead">
-            <button className="tidex-nav">‹</button>
-            <div className="tidex-month">April 2025</div>
-            <button className="tidex-nav">›</button>
-          </div>
-
-          <div className="tidex-grid">
-            {["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map((d) => (
-              <div key={d} className="tidex-wd">{d}</div>
-            ))}
-            {/* April 2025 starts on Tue: add blanks for Sun, Mon */}
-            <div className="tidex-day blank" /><div className="tidex-day blank" />
-
-            {Array.from({ length: 30 }, (_, i) => {
-              const day = i + 1;
-              const base =
-                day === 20 ? "selected" :
-                day % 6 === 0 ? "assigned" :
-                day % 5 === 0 ? "not" : "available";
-              const inRange = range && day >= range.start && day <= range.end;
-              const cls = `tidex-day ${base}${inRange ? ' in-range' : ''}`;
-              return (
-                <div key={day} className={cls}>{day}</div>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="tidex-legend">
-          <div className="tidex-legtitle">Legend</div>
-          <div className="tidex-legitem">
-            <span className="tidex-dot available" /> <span>Available</span>
-          </div>
-          <div className="tidex-legitem">
-            <span className="tidex-dot not" /> <span>Not Available</span>
-          </div>
-          <div className="tidex-legitem">
-            <span className="tidex-dot assigned" /> <span>Assigned</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <BeachingSlotAllocation />
+    <TideWindow />
               </>
           )}
 
