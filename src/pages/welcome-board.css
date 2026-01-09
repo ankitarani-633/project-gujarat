@@ -1,0 +1,197 @@
+
+/* ========= App tokens ========= */
+:root {
+  --bg-app: #f6fbff;
+
+  --ink-1: #2b3442;
+  --ink-2: #4f5b6b;
+  --ink-3: #6b829f;
+
+  --white: #fff;
+  --br-soft: #e8eef6;
+  --br-mid: #dbe9ff;
+
+  --shadow-1: 0 10px 24px rgba(25, 87, 181, .10);
+  --shadow-2: 0 8px 20px rgba(25, 87, 181, .08);
+
+  /* welcome strip gradient to match Home */
+  --grad-left: #FFFFFF;
+  --grad-right: #00A3E0;
+
+  /* light tones for card heads (as in screenshot) */
+  --tone-blue:   #E6F0FF;
+  --tone-mint:   #E5F7F1;
+  --tone-indigo: #E9EEFF;
+  --tone-sky:    #EAF8FF;
+  --tone-lilac:  #EFEAFF;
+  --tone-cyan:   #E7FAFB;
+
+  /* icon chip inner tint */
+  --chip-blue:   #3c78d8;
+  --chip-mint:   #2fbf88;
+  --chip-indigo: #274bdb;
+  --chip-sky:    #0aa3ff;
+  --chip-lilac:  #7f6bf2;
+  --chip-cyan:   #06b6d4;
+
+  /* Next button (match Home) */
+  --btn-1: #094CA1;
+}
+
+/* ========= Page shell (use Home's main container) ========= */
+.wb-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg-app);
+  /* rely on .dashboard padding from home.css to keep sizes identical */
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* ========= Welcome strip (same paddings/radius as Home) ========= */
+.welcome-strip {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  background: linear-gradient(90deg, var(--grad-left) 0%, var(--grad-right) 100%);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow-1);
+}
+.welcome-text { margin: 0; color: #294666; font-weight: 700; }
+.accent { color: #1e64ff; font-weight: 800; }
+
+.chip-right {
+  background: linear-gradient(90deg, #49a7ff, #5ec6ff);
+  color: #fff;
+  padding: 8px 12px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+/* ========= Cards grid (3 cols -> 2 -> 1) ========= */
+.wb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* Card container */
+.wb-card {
+  background: var(--white);
+  border: 1px solid var(--br-soft);
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(12, 54, 103, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card head */
+.wb-cardhead {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #eef2f9;
+}
+.wb-cardhead.tone-blue   { background: var(--tone-blue); }
+.wb-cardhead.tone-mint   { background: var(--tone-mint); }
+.wb-cardhead.tone-indigo { background: var(--tone-indigo); }
+.wb-cardhead.tone-sky    { background: var(--tone-sky); }
+.wb-cardhead.tone-lilac  { background: var(--tone-lilac); }
+.wb-cardhead.tone-cyan   { background: var(--tone-cyan); }
+
+.wb-cardtitle { font-weight: 800; color: #243346; }
+
+/* Icon chip (rounded square, inner white, slight shadow) */
+.icon-chip {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px 16px 16px 10px;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  border: 1px solid var(--br-mid);
+  box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.08);
+}
+.icon-wrap {
+  width: 20px;
+  height: 20px;
+  color: #0f55c7; /* default stroke color for icons */
+}
+
+/* Bullet list body */
+.wb-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 16px 16px 16px;
+  display: grid;
+  gap: 8px;
+}
+.wb-li {
+  position: relative;
+  padding-left: 18px;
+  color: #49566a;
+  font-weight: 600;
+}
+.wb-li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #3c78d8;
+  font-size: 18px;
+  line-height: 1;
+}
+
+
+
+.wb-next:focus-visible { outline: 2px solid #7ccdfc; outline-offset: 2px; }
+
+/* ========= Responsive ========= */
+@media (max-width: 1120px) {
+  .wb-grid { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+}
+@media (max-width: 720px) {
+  .wb-grid { grid-template-columns: 1fr; }
+}
+
+.wb-actions {
+  display: flex;              /* Use flex for easy alignment */
+  justify-content: space-between; /* Spread Back and Next apart */
+  align-items: center;        /* Vertically center both buttons */
+  margin-top: 16px;           /* Add spacing from content */
+  padding: 0 4px;             /* Optional horizontal padding */
+}
+
+.wb-back {
+  background: transparent;
+  border: none;
+  color: #294666;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px 16px;         /* Match Next button height */
+  font-size: 15px;
+  display: flex;
+  align-items: center;        /* Align arrow and text */
+  gap: 6px;                   /* Space between arrow and text */
+}
+
+.wb-next {
+  background: #094CA1;        /* Solid blue background */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;         /* Same vertical padding as Back */
+  font-weight: 800;
+  font-size: 15px;
+  box-shadow: 0 4px 8px rgba(15, 76, 129, 0.18);
+  cursor: pointer;
+  display: flex;
+  align-items: center;        /* Center text inside button */
+}
+.wb-next:hover {
+  transform: translateY(-2px);
+}

@@ -7,7 +7,7 @@
 /* Blue section title bar */
 .ihmx-titlebar{
   display:grid; grid-template-columns: 1fr auto; align-items:center;
-  background:#1e64ff; color:#fff; border-radius:8px;
+  background:#00A3E0; color:#fff; border-radius:8px;
   padding:10px 12px; margin-bottom:10px;
 }
 .ihmx-title-left{ display:flex; align-items:center; gap:8px; }
@@ -28,7 +28,7 @@
   box-shadow:0 8px 20px rgba(25,87,181,.08);
   padding:12px; margin-bottom:12px;
 }
-.ihmx-cardtitle{ color:#6b829f; font-weight:700; margin-bottom:8px; }
+.ihmx-cardtitle{ color:#000000; font-weight:700; margin-bottom:8px; }
 
 /* 3-column grid for fields */
 .ihmx-grid{
@@ -84,7 +84,7 @@
 /* Blue section title bar */
 .ihmx-titlebar{
   display:grid; grid-template-columns: 1fr auto; align-items:center;
-  background:#1e64ff; color:#fff; border-radius:8px;
+  background:#00A3E0; color:#fff; border-radius:8px;
   padding:10px 12px; margin-bottom:10px;
 }
 .ihmx-title-left{ display:flex; align-items:center; gap:8px; }

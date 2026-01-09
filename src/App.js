@@ -9,6 +9,9 @@ import Approval from "./pages/Approval";
 import Ihm from "./pages/Ihm";
 import Training from "./pages/Training";
 import Compliance from "./pages/Compliance";
+import OperationalDashboard from "./pages/OperationalDashboard";
+import WelcomeBoard from "./pages/WelcomeBoard";
+import WelcomeMetrics from "./pages/WelcomeMetrics";
 function ProtectedRoute({ children }) {
   if (!auth.isAuthenticated()) return <Navigate to="/login" replace />;
   return children;
@@ -35,9 +38,13 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/welcomeMetrics" element={<ProtectedRoute><WelcomeMetrics /></ProtectedRoute>} />
+
                 <Route path="/plan" element={<ProtectedRoute><Plan /></ProtectedRoute>} />
 
                 <Route path="/training" element={<ProtectedRoute><Training /></ProtectedRoute>} />
+                <Route path="/welcome" element={<ProtectedRoute><WelcomeBoard /></ProtectedRoute>} />
+                <Route path="/operational" element={<ProtectedRoute><OperationalDashboard /></ProtectedRoute>} />
                 
 
       <Route path="/ihm" element={<ProtectedRoute><Ihm /></ProtectedRoute>} />

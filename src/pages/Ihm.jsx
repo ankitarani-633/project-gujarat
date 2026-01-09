@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import { auth } from "../auth";
 import "../styles/ihm.css";
+import Vector from "../images/Vector.png";
 
 export default function Ihm() {
   const navigate = useNavigate();
@@ -77,13 +78,12 @@ export default function Ihm() {
           {/* Blue section title bar */}
           <div className="ihmx-titlebar">
             <div className="ihmx-title-left">
-              <span className="ihmx-title-icon">📘</span>
+              <span className="ihmx-title-icon">
+                <img src={Vector} alt="IHM Icon" />
+              </span>
               <span className="ihmx-title">Inventory of Hazardous Materials</span>
             </div>
-            <div className="ihmx-title-actions">
-              <button className="ihmx-iconbtn" title="Refresh">↻</button>
-              <button className="ihmx-iconbtn" title="Help">❓</button>
-            </div>
+            
           </div>
 
           {/* Card: Particulars of the Ship */}
@@ -126,8 +126,8 @@ export default function Ihm() {
           </section>
 
           {/* Card: Statements */}
-          <section className="ihmx-card">
-            <div className="ihmx-checkline">
+          {/* <section className="ihmx-card"> */}
+            {/* <div className="ihmx-checkline"> */}
               <p className="ihmx-checktext">
                 This inventory was developed in accordance with the IMO Guidelines for the Development of the Inventory of Hazardous Materials.
               </p>
@@ -135,7 +135,7 @@ export default function Ihm() {
                 <input type="checkbox" name="imoGuidelinesChecked"
                        checked={form.imoGuidelinesChecked} onChange={onChange} />
               </label>
-            </div>
+            {/* </div> */}
 
             <div className="ihmx-checkline">
               <p className="ihmx-checktext">
@@ -146,7 +146,7 @@ export default function Ihm() {
                        checked={form.euRegChecked} onChange={onChange} />
               </label>
             </div>
-          </section>
+          {/* </section> */}
 
           {/* Card: Initially prepared by */}
           <section className="ihmx-card">

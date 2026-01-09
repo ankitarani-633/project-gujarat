@@ -7,7 +7,7 @@ import StatCard from "../components/StatCard";
 import { auth } from "../auth";
 import "../styles/home.css";
 import MetricStrip from "../components/metricstrip/MetricStrip";
-
+import Cube from "../images/cube.png";
 export default function Home() {
   const navigate = useNavigate();
   const logout = () => {
@@ -16,8 +16,8 @@ export default function Home() {
   };
 
   const goNext = () => {
-    // navigate to the Plan page
-    navigate("/plan");
+    // navigate to the WelcomeBoard page
+    navigate("/welcome");
   };
 
   const metrics = [
@@ -96,7 +96,7 @@ export default function Home() {
                 <div>
                   <div className="panel-head">
                     <div className="panel-title">
-                      <span className="panel-icon" aria-hidden="true">🧪</span>
+                      <span className="panel-icon" aria-hidden="true"><img height="16" src={Cube} alt="Cube Icon" /></span>
                       Hazardous Material Identification
                     </div>
                   </div>
@@ -110,7 +110,7 @@ export default function Home() {
                 <div>
                   <div className="panel-head">
                     <div className="panel-title">
-                      <span className="panel-icon" aria-hidden="true">📦</span>
+                      <span className="panel-icon" aria-hidden="true"><img height="16" src={Cube} alt="Cube Icon" /></span>
                       Storage and Management
                     </div>
                   </div>
